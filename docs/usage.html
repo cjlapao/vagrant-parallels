@@ -88,10 +88,19 @@ page for providers.</p>
 <p>When Parallels provider is installed it has a higher priority than any other
 provider shipped with Vagrant. In most cases you will not have to specify the
 provider name, just &quot;vagrant up&quot; will be enough:</p>
-<div class="highlight"><pre class="highlight plaintext"><code>$ vagrant init bento/ubuntu-18.04
+
+<p>For Macs with Intel chip:
+<code>
+$ vagrant init bento/ubuntu-18.04
 $ vagrant up
-</code></pre></div>
-<p>But if you have a multi-provider configuration and/or want to be sure that
+</code></p>
+
+<p>For Macs with Apple M-series chip:
+<code>
+$ vagrant init bento/ubuntu-20.04-arm64
+$ vagrant up
+</code>
+But if you have a multi-provider configuration and/or want to be sure that
 exactly <code>parallels</code> provider will be used, then you can specify it explicitly:</p>
 <div class="highlight"><pre class="highlight plaintext"><code>$ vagrant up --provider=parallels
 </code></pre></div>

@@ -102,12 +102,22 @@ documentation page.</p>
 <p>All boxes for &quot;parallels&quot; provider could be found on Vagrant Cloud:
 <a href="https://app.vagrantup.com/boxes/search?provider=parallels">https://app.vagrantup.com/boxes/search?provider=parallels</a></p>
 
+<p>For Macs with Apple M-series chip use ARM-based boxes:
+<a href="https://app.vagrantup.com/boxes/search?provider=parallels&amp;q=arm">https://app.vagrantup.com/boxes/search?provider=parallels&amp;q=arm</a></p>
+
 <p>Adding a box from the catalog is very easy:</p>
 <div class="highlight"><pre class="highlight plaintext"><code>$ vagrant box add bento/ubuntu-18.04
 ...
 </code></pre></div>
 <p>You can also quickly initialize a Vagrant environment with the command:</p>
-<div class="highlight"><pre class="highlight plaintext"><code>$ vagrant init bento/ubuntu-18.04
+
+<p>For Macs with Intel chip:
+<code>
+$ vagrant init bento/ubuntu-18.04
+...
+</code>
+For Macs with Apple M-series chip:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>$ vagrant init bento/ubuntu-20.04-arm64
 ...
 </code></pre></div>
 							</div> <!-- /.span8 -->
