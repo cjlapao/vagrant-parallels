@@ -95,17 +95,18 @@ it using Vagrant. The following describes how to create a virtual machine.</p>
 
 <p>Create a new directory and init the new Vagrant project in it:</p>
 
-<p>For Macs with Intel chip:
-<code>
-$ vagrant init bento/ubuntu-18.04
+<ul>
+<li>For Macs with Intel chip:</li>
+</ul>
+<div class="highlight"><pre class="highlight plaintext"><code>$ vagrant init bento/ubuntu-18.04
 $ vagrant up --provider=parallels
-</code>
-For Macs with Apple M-series chip:
-<code>
-$ vagrant init bento/ubuntu-20.04-arm64
+</code></pre></div>
+<ul>
+<li>For Macs with Apple M-series chip:</li>
+</ul>
+<div class="highlight"><pre class="highlight plaintext"><code>$ vagrant init bento/ubuntu-20.04-arm64
 $ vagrant up --provider=parallels
-</code></p>
-
+</code></pre></div>
 <p>Vagrant will automatically download and import the box and create a new virtual
 machine form it. The virtual machine will then be configured and started.</p>
 
