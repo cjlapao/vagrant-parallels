@@ -64,7 +64,7 @@
 
 								<ul class="sub unstyled">
 									<li><a href="base.html">Creating a Base Box</a></li>
-									<li class="current"><a href="base_macos.html">Creating a macOs Base Box</a></li>
+									<li class="current"><a href="base_macos.html">Creating a macOS Base Box</a></li>
 									<li><a href="packer.html">Build with Packer</a></li>
 									<li><a href="veewee.html">Build with Veewee</a></li>
 								</ul>
@@ -87,30 +87,18 @@
 							<div class="span8 offset1">
 								<h1>Creating a macOS Base Box Manually</h1>
 
-<div class="alert alert-warn">
-    <p>
-        <strong>Warning: Advanced Topic!</strong> Creating a base box can be a
-        time consuming and tedious process, and is not recommended for new
-        Vagrant users. If you're just getting started with Vagrant, we
-        recommend trying to find <a href="https://app.vagrantup.com/boxes/search?provider=parallels">
-        existing base boxes</a> to use first.
-    </p>
-</div>
-
 <p>Prior to reading this page, please check out the <a href="https://www.vagrantup.com/docs/boxes/format.html">basics of the Vagrant
 box file format</a>.</p>
 
 <h2>Pre-requisites</h2>
 
 <ul>
-<li>Download and install <a href="https://developer.hashicorp.com/vagrant/downloads">Vagrant</a>.</li>
-<li><p>Install Parallels plugin for Vagrant by executing the command below in Terminal:</p>
-<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>vagrant plugin <span class="nb">install </span>vagrant-parallels
-</code></pre></div></li>
+<li><p>Install Vagrant, you can find the instructions <a href="/docs/installation">here</a></p></li>
 <li><p>Start Parallels Desktop and create a new macOS virtual machine as outlined  in <a href="http://kb.parallels.com/125561/">KB 125561</a>.
 <div class="alert alert-info">
 <p>
-    While creating the VM, give the username as ‘vagrant’ only.
+    While creating the VM, give the username as ‘vagrant’ only.<br />
+    If this is a public box you should set the password to ‘vagrant’ as well.
 </p>
 </div></p>
 
@@ -126,8 +114,16 @@ box file format</a>.</p>
 <p>To Say:</p>
 <div class="highlight"><pre class="highlight shell"><code>%admin <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: ALL
 </code></pre></div>
-<p>Now, you should now be able to run sudo without password.</p></li>
-<li><p>Install Parallels Tools inside the macOS virtual machine.</p></li>
+<p>Now, you should be able to run sudo without password.</p></li>
+<li><p>Install Parallels Tools inside the macOS virtual machine.<br>
+macOs 13 &gt; <strong>Install Parallels Tools</strong>
+<img src="../../images/install_extension-f5d238f9.gif" alt="install_parallels_extension" /></p>
+
+<p><div class="alert alert-info">
+<p>
+    <strong>Note:</strong> Installing the Parallels Tools will require a reboot
+</p>
+</div></p></li>
 <li><p>Boot macOS virtual machine and enable Remote Login (System Settings &gt; General &gt; Sharing &gt; Enable Remote Login). Don&#39;t forget to give “Full disk access to users”, do allow “All users” (in the same settings, press <img src="../../images/info_32-7d20362d.png" alt="info" /> button)
 <img src="../../images/allow_sharing-fbb15b12.gif" alt="Parallels Desktop" /></p></li>
 <li><p>Restart macOS virtual machine for the Remote Login to take effect.</p></li>
@@ -135,7 +131,8 @@ box file format</a>.</p>
 
 <h2>SSH Keys</h2>
 
-<p>We will need to create a new SSH keypair for Vagrant to use to communicate</p>
+<p>We will need to create a new SSH keypair for Vagrant to use to communicate, we will be creating one from our host.<br>
+You can also use the vagrant public boxes key found <a href="https://github.com/hashicorp/vagrant/tree/main/keys">here</a></p>
 
 <ul>
 <li><p>Create an ssh public-private key from the host.</p>
@@ -182,6 +179,12 @@ It will generate the files below in the ~/.ssh/ directory:
 <div class="alert alert-info">
 <p>
     <strong>Note:</strong> Renaming the virtual machine is one of the solutions to avoid name collision. You can also remove macOS virtual machine from Control Center (Parallels icon > Control Center > Right-click on macOS 13 virtual machine > Remove 'macOS 13' > <strong>Keep Files</strong>).
+</p>
+</div>
+
+<div class="alert alert-warn">
+<p>
+    <strong>Attention:</strong> If you used the public vagrant ssh key then you will not need to do the next steps as they are only copying the ssh key that you generated.
 </p>
 </div></li>
 <li><p>Download <a href="https://kb.parallels.com/Attachments/kcs-191881/Vagrantfile">Vagrantfile</a> and put it in the VagrantTest folder.</p></li>
